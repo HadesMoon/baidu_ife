@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test3</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .box {
+        width: 800px;
+        margin: 0 auto;
+    }
+    
+    .slider {
+        width: 200px;
+        height: 100px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .slider ul {
+        width: 10000px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: -200px;
+        z-index: 999;
+    }
+    
+    .slider li {
+        float: left;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-size: 16px;
+    }
+    
+    .slider li:nth-of-type(1) {
+        background: #0033FF;
+    }
+    
+    .slider li:nth-of-type(2) {
+        background: #00CCFF;
+    }
+    
+    .slider li:nth-of-type(3) {
+        background: #330000;
+    }
+    
+    .slider li:nth-of-type(4) {
+        background: #9900FF;
+    }
+    
+    .slider li:nth-of-type(5) {
+        background: #FF9900;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="slider">
+            <ul id="ul">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        <div class="btn">
+            <ul>
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <input id="stop" type="button" value="stop">
+            <input id="start" type="button" value="start">
+        </div>
+    </div>
+    <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript">
+    var ul = $('#ul'),
+        stop = $('#stop'),
+        start = $('#start');
+    var num = 0;
+
+    function slider() {
+        if (num <= 0 && num >= -800) {
+            ul.style.left = num + 'px';
+            num -= 200;
+        }
+        if (num < -800) {
+            num = 0;
+        }
+
+
+    }
+
+    var time = setInterval(slider, 1000);
+
+    stop.onclick=function() {
+    	console.log(1)
+        clearInterval(time);
+    }
+    start.onclick=function(){
+    	clearInterval(time);
+    	time=setInterval(slider,1000);
+    }
+    </script>
+</body>
+
+</html>

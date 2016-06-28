@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>test1_2</title>
+	<style type="text/css">
+      span{
+      	display: inline-block;
+      	padding: 5px 10px;
+      	background: red;
+      	color: #fff;
+      	margin: 10px;
+      }
+      #error{
+      	color: red;
+      }
+	</style>
+</head>
+<body>
+	<textarea id="txt" cols="20" rows="5"></textarea>
+	<input id="btn" type="button" value="sub">
+	<div id="error"></div>
+	<div id="show">
+		
+	</div>
+
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript">
+		var txt=$('#txt'),
+		    btn=$('#btn'),
+		    show=$('#show'),
+		    error=$('#error');
+
+		    function add(){
+		    	var arr=[];
+		    	arr=trim(txt.value).split(/[^0-9a-zA-Zu4e00-u9fa5]+/);
+		    	uniqArray(arr);
+                if (arr.length>10) {
+                  error.innerHTML='爱好不能超过10个';
+                }else if(arr[0].length=='') {
+                	error.innerHTML='爱好不能为0';
+                }else{
+                	error.innerHTML='';
+                	render(arr);
+                }
+		    }
+		    function render(arr){
+		    	var str='';
+		    	for(var i=0,len=arr.length;i<len;i++){
+		    		if (!arr[i].replace(/\s+/g,"").length ==0) {
+                        str+='<label><input type="checkbox" name="hobby">'+arr[i]+'</label>';
+		    		}
+		    	}
+		    	show.innerHTML=str;
+		    }
+
+		    btn.onclick=add;
+	</script>
+</body>
+</html>

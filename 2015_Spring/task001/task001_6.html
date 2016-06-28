@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+     .wrap{
+     	background: red;
+     	overflow: auto;
+     	margin: 0 auto;
+     }
+     .item{
+     	float: left;
+     	background: blue;
+     	width:100px;
+     	height: 100px;
+     	margin: 10px;
+     }
+  /*    .a{
+  	width: 50px;
+  	height: 50px;
+  	float: left;
+  	background: yellow;
+  } */
+     .b{
+     	margin-left: 50px;
+     	height: 50px;
+     	background: blue;
+     }
+     .a{
+     	position: absolute;
+     	width: 50px;
+     	height: 50px;
+     	background: yellow;
+     }
+
+	</style>
+
+</head>
+<body>
+	<div class="wrap">
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</div>
+	<!-- <div class="a">
+		
+	</div>
+	<div class="b">
+		
+	</div> -->
+
+  <!-- （必选）加载 Mock -->
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://mockjs.com/dist/mock.js"></script>
+<script>
+// 使用 Mock\
+Mock.Random.date();
+var data=Mock.mock({
+  'array|1-10':[
+   {'name':'@cname'}
+  ]
+  
+})
+
+Mock.mock('http://g.cn', {
+    'name|2'   : '@name',
+    'age|1-100': 100,
+    'color'    : '@color'
+});
+/*$.ajax({
+  url:'http://g.cn',
+  dataType:'json'
+}).done(function(data,status,xhr){
+  console.log(JSON.stringify(data, null, 4));
+})*/
+ console.log(JSON.stringify(data, null, 4));
+
+</script>
+</body>
+</html>

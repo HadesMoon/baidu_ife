@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>test2</title>
+</head>
+<body>
+	<input id="txt" type="text" placeholder="请按照YYYY-MM-DD格式输入">
+	<input id="btn" type="button" value="sub">
+	<div id="error"></div>
+    <div id="show"></div>
+
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript">
+		var txt=$('#txt'),
+		    btn=$('#btn'),
+		    show=$('#show'),
+		    error=$('#error');
+            
+            function timer() {
+
+            	var value=trim(txt.value).split('-');
+            	var t;
+
+            	clearTimeout(t);
+
+            	if (value.length!==3) {
+            		error.innerHTML='请输入正确的格式';
+            		return;
+            	}
+            	error.innerHTML='';
+            	var endDate=new Date();
+            	endDate.setFullYear(value[0],value[1]-1,value[2]);
+            	endDate.setHours(0,0,0,0);
+
+            	var today=new Date(),
+            	    dif=endDate-today;
+            	    console.log(dif)
+            	    if (dif<0) {
+            	    	error.innerHTML='请输入一个将来的时间';
+            	    	clearTimeout(t);
+            	    	return;
+            	    }
+
+            	var dd = parseInt(dif / 1000 / 60 / 60 / 24,10);//计算剩余的天数  
+                var hh = parseInt(dif / 1000 / 60 / 60 % 24, 10);//计算剩余的小时数  
+                var mm = parseInt(dif / 1000 / 60 % 60, 10);//计算剩余的分钟数  
+                var ss = parseInt(dif / 1000 % 60, 10);//计算剩余的秒数  
+                dd = checkTime(dd);  
+                hh = checkTime(hh);  
+                mm = checkTime(mm);  
+                ss = checkTime(ss);
+
+                show.innerHTML='距离指定日期还有'+dd+'天'+hh+'小时'+mm+'分'+ss+'秒';
+                t=setTimeout(timer,1000);
+            }
+
+            function checkTime(i) {
+            	if (i<10) {
+            		i='0'+i;
+            	}
+            	return i;
+            }
+
+            btn.onclick=timer;
+
+
+
+	</script>
+</body>
+</html>
