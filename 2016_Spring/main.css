@@ -1,0 +1,165 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+ul{
+	list-style: none;
+}
+body{
+	font-family: "微软雅黑";
+	background: #dedede;
+}
+article,aside{
+	background: #FFFFFF;
+	padding: 20px;
+	margin: 30px;
+	box-shadow: 1px 1px 2px 1px #848484;
+}
+header{
+	height: 70px;
+	background: #000;
+}
+.logo{
+	padding-left:20px;
+}
+.navbar{
+	float: right;
+}
+.navbar-list li{
+	float: left;
+	width: 100px;
+	line-height: 70px;
+}
+.navbar-list li a{
+	color: #fff;
+	text-decoration: none;
+}
+article{
+	margin-right: 480px;
+}
+article h2{
+	padding: 5px 0;
+}
+article h3{
+	padding: 10px 0;
+    color: #808080;
+}
+article img{
+	width: 20%;
+}
+.author,.aTime{
+	color: #808080;
+	font-size: 12px;
+	line-height: 30px;
+}
+article p{
+	text-indent:2em;
+}
+.pic figure{
+	text-align: center;
+	font-size: 10px;
+	border: 1px solid #e8ecef;
+	margin: 20px;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+}
+.pic figure img{
+	width: 110px;
+	height: 110px;
+}
+.pic figcaption{
+	line-height: 25px;
+}
+article ol{
+	margin: 10px 40px;
+}
+article table{
+	width: 90%;
+	border: 1px solid #e6e6e6;
+	border-collapse: collapse;
+}
+article table th,article table td{
+	border: 1px solid #e6e6e6;
+	text-align: left;
+	padding: 2px;
+}
+article table th{
+	background: #000000;
+	color: #FFFFFF;
+}
+.table-bottom td{
+	background: #ccc;
+}
+aside{
+  background: #fff;
+  float: right;
+  width: 380px;
+  padding: 20px;
+}
+aside h4{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+	border-left:3px solid #CCCCCC;
+}
+.aside{
+  padding-left: 10px;
+  border-left: 3px #ccc solid;
+}
+form{
+  width: 100%;
+  min-width: 300px;
+}
+form>div{
+  margin: 10px 0;
+}
+.bot{
+  vertical-align: bottom;
+}
+.input_message{
+  width: 30%;
+  text-align: right;
+  display:inline-block;
+  margin-right: 20px;
+  margin-top: 10px;
+  vertical-align: top;
+  margin-bottom: 0px;
+}
+.input_messages{
+  width: 30%;
+  text-align: right;
+  display:inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.demand{
+  font-size: 13px;
+  color: gray;
+  margin-left: 37.5%;
+  margin-top: 10px;
+}
+textarea{
+  margin-top: 10px;
+  width: 50%;
+  height: 100px;
+  margin-left: -7px;
+}
+input[type='submit']{
+  width: 100%;
+  height: 40px;
+  background: #3355D0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  border:1px solid #3355D0;
+  font-weight: 800;
+}
+footer{
+	height: 40px;
+	line-height: 40px;
+	background: #000000;
+	color: #FFFFFF;
+	text-align: center;
+}

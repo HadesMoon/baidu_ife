@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+  	<li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+ 
+ //刚开始自己写的
+/* var oUl=document.getElementById("aqi-list");
+
+ for(var i=0;i<aqiData.length;i++){
+ 	var j=i;
+ 	if(aqiData[j][1]>60){
+ 		var ali=document.createElement('li');
+ 		var list=aqiData[j][0]+":"+aqiData[j][1];
+ 		ali.innerHTML=list;
+ 		oUl.appendChild(ali);
+ 	}
+ 	
+ }*/
+
+//参考了其他人写的，改进，使用了filter sort forEach
+var li='';
+var oUl=document.getElementById('aqi-list');
+var Data=aqiData.filter(function(a){
+	return (a[1]>60);
+}).sort(function(a,b){
+	return b[1]-a[1];
+}).forEach(function(city,index){
+	li+='<li>第'+(index+1)+'名：'+city[0]+','+city[1]+'</li>'
+})
+   oUl.innerHTML=li;
+
+})();
+
+</script>
+	</body>
+</html>
