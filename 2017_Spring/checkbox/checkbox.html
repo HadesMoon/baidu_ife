@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>自定义CheckBox，Radio样式</title>
+    <style type="text/css">
+    #check1 {
+      display: none;
+    }
+    #check1:checked {
+      display:block;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <label for="check1" id="label1">男</label>
+      <input id="check1" type="checkbox" name="checkbok" value="boy">
+    </div>
+    <script type="text/javascript">
+     var label1 = document.getElementById('label1');
+
+      label1.onclick=showValue;
+
+      function showValue(){
+
+        console.log(document.getElementById('check1').value);
+      }
+    </script>
+  </body>
+</html>
