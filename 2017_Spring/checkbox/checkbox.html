@@ -26,37 +26,102 @@
             height: 20px;
             background-position: 26% 100%;
         }
+
         .label-radio {
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          background-position: 26% 20%;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-position: 26% 20%;
         }
 
-        #check1:checked~.label-checkbox {
+        #check1:checked+.label-checkbox {
             background-position: 70% 98%;
         }
-        input[name=sex]:checked~.label-radio {
-          background-position: 70% 20%;
+
+        input[name=sex]:checked+.label-radio {
+            background-position: 70% 20%;
+        }
+        /* 伪类 */
+
+        .after label {
+            display: block;
+            position: relative;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #ddd;
+            background: #fff;
+            margin-bottom: 10px;
         }
 
+        .after .label-radio {
+            border-radius: 50%;
+        }
+        /* 为了兼容低版本ie 伪类使用了两个冒号 */
+
+        #check2:checked+.label-checkbox::after {
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            content: ' ';
+            display: block;
+            background: url(./bg.png) no-repeat;
+            background-position: 70% 92%;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+        }
+        .after input[name=sex]:checked+.label-radio {
+          border-color: red;
+        }
+        .after input[name=sex]:checked+.label-radio::after {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          content: ' ';
+          display: block;
+          background: red;
+          background-position: 70% 25%;
+          width: 10px;
+          height: 10px;
+          margin-left: -5px;
+          margin-top: -5px;
+          border-radius: 50%;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrap">
-        <input id="check1" type="checkbox" name="sex" value="yes">
-        <label for="check1" class="label-checkbox"></label>
-
-        <div class="radio">
-          <input type="radio" name="sex" id="radio1">
-          <label class="label-radio" for="radio1"></label>
+        <div class="sprite">
+            <h1>雪碧图</h1>
+            <h2>checkbox</h2>
+            <input id="check1" type="checkbox" name="sex" value="yes">
+            <label for="check1" class="label-checkbox"></label>
+            <h2>radio</h2>
+            <div class="radio">
+                <input type="radio" name="sex" id="radio1">
+                <label class="label-radio" for="radio1"></label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="sex" id="radio2">
+                <label class="label-radio" for="radio2"></label>
+            </div>
         </div>
-        <div class="radio">
-          <input type="radio" name="sex" id="radio2">
-          <label class="label-radio" for="radio2"></label>
+        <div class="after">
+            <h1>伪类</h1>
+            <h2>checkbox</h2>
+            <input id="check2" type="checkbox" name="sex" value="yes">
+            <label for="check2" class="label-checkbox"></label>
+            <h2>radio</h2>
+            <div class="radio">
+                <input type="radio" name="sex" id="radio3">
+                <label class="label-radio" for="radio3"></label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="sex" id="radio4">
+                <label class="label-radio" for="radio4"></label>
+            </div>
         </div>
-
     </div>
     <script type="text/javascript">
     </script>
