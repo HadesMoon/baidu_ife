@@ -1,32 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>自定义CheckBox，Radio样式</title>
     <style type="text/css">
-    #check1 {
-      display: none;
-    }
-    #check1:checked {
-      display:block;
-    }
+        input {
+            display: none;
+        }
+
+        .wrap {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        label {
+            background: url(./bg.png);
+            background-repeat: no-repeat;
+        }
+
+        .label-checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-position: 26% 100%;
+        }
+        .label-radio {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background-position: 26% 20%;
+        }
+
+        #check1:checked~.label-checkbox {
+            background-position: 70% 98%;
+        }
+        input[name=sex]:checked~.label-radio {
+          background-position: 70% 20%;
+        }
+
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="wrap">
-      <label for="check1" id="label1">男</label>
-      <input id="check1" type="checkbox" name="checkbok" value="boy">
+        <input id="check1" type="checkbox" name="sex" value="yes">
+        <label for="check1" class="label-checkbox"></label>
+
+        <div class="radio">
+          <input type="radio" name="sex" id="radio1">
+          <label class="label-radio" for="radio1"></label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="sex" id="radio2">
+          <label class="label-radio" for="radio2"></label>
+        </div>
+
     </div>
     <script type="text/javascript">
-     var label1 = document.getElementById('label1');
-
-      label1.onclick=showValue;
-
-      function showValue(){
-
-        console.log(document.getElementById('check1').value);
-      }
     </script>
-  </body>
+</body>
+
 </html>
